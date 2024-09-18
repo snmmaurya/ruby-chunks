@@ -15,3 +15,43 @@ elements.each do |element|
   maintain_array(result, element)
 end
 print result;
+
+
+# super vs super()
+class Parent
+  def greet(name)
+    puts "Hello, #{name}!"
+  end
+end
+
+class Child < Parent
+  def greet(name)
+    super  # Calls Parent#greet with the same argument
+    puts "Nice to meet you!"
+  end
+end
+
+Child.new.greet("Alice")
+# Output:
+# Hello, Alice!
+# Nice to meet you!
+
+
+
+class Parent
+  def greet(name)
+    puts "Hello, #{name}!"
+  end
+end
+
+class Child < Parent
+  def greet(name)
+    super(name)  # Calls Parent#greet with no arguments
+    puts "Nice to meet you!"
+  end
+end
+
+Child.new.greet("Alice")
+# Output:
+# Hello, !
+# Nice to meet you!
